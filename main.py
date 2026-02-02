@@ -152,10 +152,13 @@ def process_file(in_path: str):
             raw_ref = ref_series.iat[i] if i < len(ref_series) else ""
             raw_qty = qty_series.iat[i] if i < len(qty_series) else ""
 
-            if pd.isna(raw_ref) or str(raw_ref).strip() == "":
+            # Força conversão para string para garantir que letras não sejam perdidas
+            raw_ref_str = str(raw_ref)
+            if pd.isna(raw_ref) or raw_ref_str.strip() == "":
                 continue
 
-            ref = re.sub(r"\D", "", str(raw_ref))
+            # Remove apenas traços, mantendo letras e números
+            ref = raw_ref_str.replace("-", "").strip()
             if ref == "":
                 continue
 
@@ -181,11 +184,13 @@ def process_file(in_path: str):
         raw_ref = row.get(ref_col, "")
         raw_qty = row.get(qty_col, "")
 
-        if pd.isna(raw_ref):
+        # Força conversão para string para garantir que letras não sejam perdidas
+        raw_ref_str = str(raw_ref)
+        if pd.isna(raw_ref) or raw_ref_str.strip() == "":
             continue
 
-        # Clean reference: keep only digits
-        ref = re.sub(r"\D", "", str(raw_ref))
+        # Remove apenas traços, mantendo letras e números
+        ref = raw_ref_str.replace("-", "").strip()
         if ref == "":
             continue
 
