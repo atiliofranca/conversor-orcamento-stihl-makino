@@ -1,0 +1,46 @@
+# Python virtualenvs
+.venv/
+venv/
+env/
+ENV/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+release/
+*.egg-info/
+*.egg
+*.spec
+
+# PyInstaller
+# note: keep Excel files (*.xls, *.xlsx) tracked as requested
+*.manifest
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and databases
+*.log
+pip-log.txt
+
+# Test / coverage
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Mypy
+.mypy_cache/
+
+# Environment variables
+.env
+.env.*
